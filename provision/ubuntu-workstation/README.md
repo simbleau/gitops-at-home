@@ -23,6 +23,7 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 ---
 
 ## 🏁 Provisioning Steps
+### Dependencies
 - [ ] Install [SOPS](https://github.com/mozilla/sops) for sensitive file decryption (**required**)
   > Releases: [https://github.com/mozilla/sops/releases](https://github.com/mozilla/sops/releases)
 - [ ] Mount access to the SOPS `keys.txt`
@@ -32,5 +33,13 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
   > `sudo apt install ansible`
 - [ ] Install ansible requirements
   > `ansible-galaxy install -r requirements.yml`
+
+### Provision Desktop
 - [ ] Run provisioning playbook
-  > `ansible-playbook ./playbooks/provision.yml`
+```ansible
+ansible-playbook \
+--connection=local \
+--inventory 127.0.0.1, \
+--limit 127.0.0.1 \
+./playbooks/provision.yml
+```
