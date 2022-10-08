@@ -22,6 +22,7 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 ---
 
 ## 🏁 Provisioning Steps
+### Dependencies
 - [ ] Install [SOPS](https://github.com/mozilla/sops) for sensitive file decryption (**required**)
   > Releases: [https://github.com/mozilla/sops/releases](https://github.com/mozilla/sops/releases)
 - [ ] Mount access to the SOPS `keys.txt`
@@ -31,5 +32,39 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
   > `sudo apt install ansible`
 - [ ] Install ansible requirements
   > `ansible-galaxy install -r requirements.yml`
-- [ ] Run provisioning playbook
-  > `ansible-playbook ./playbooks/provision.yml`
+
+### Provisioning master nodes
+- [ ] Set the username for initial connection (will be deleted)
+  > `export ANSIBLE_REMOTE_USER='ubuntu'`
+- [ ] Decrypt inventory file
+  > `sops -d ./inventory/masters.sops.yml > ./inventory/masters.yml`
+- [ ] Run provisioning playbook'
+```ansible
+ansible-playbook \
+--inventory ./inventory/masters.yml \
+./playbooks/provision_masters.yml
+```
+
+### Provisioning worker nodes
+- [ ] Set the username for initial connection (will be deleted)
+  > `export ANSIBLE_REMOTE_USER='ubuntu'`
+- [ ] Decrypt inventory file
+  > `sops -d ./inventory/workers.sops.yml > ./inventory/workers.yml`
+- [ ] Run provisioning playbook'
+  - [ ] Optional: add `--limit odd` or `--limit even` for half of the nodes
+```ansible
+ansible-playbook \
+--inventory ./inventory/workers.yml \
+./playbooks/provision_workers.yml
+```
+
+### Reboot cluster
+- [ ] Set the username for initial connection (will be deleted)
+  > `export ANSIBLE_REMOTE_USER='ubuntu'`
+- [ ] Run provisioning playbook'
+```ansible
+ansible-playbook \
+--inventory ./inventory/masters.yml \
+--inventory ./inventory/workers.yml \
+./playbooks/reboot.yml
+```

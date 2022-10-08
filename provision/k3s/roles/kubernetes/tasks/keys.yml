@@ -1,0 +1,20 @@
+---
+- include_vars: keys.yml
+
+- name: Create .ssh directory
+  ansible.builtin.file:
+    path: "{{ ssh_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0775
+
+- name: Load SSH public key
+  ansible.builtin.set_fact:
+    id_rsa_pub: "{{ lookup('file', 'id_rsa.pub.sops.age')  | community.sops.decrypt(output_type='binary') }}"
+
+- name: Set authorized key
+  authorized_key:
+    user: "{{ username }}"
+    state: present
+    key: "{{ id_rsa_pub }}"

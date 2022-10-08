@@ -1,0 +1,6 @@
+---
+- include_vars: locale.yml
+
+- name: Set timezone
+  community.general.timezone:
+    name: "{{ timezone }}"

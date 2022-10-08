@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Assert SOPS is installed
+      shell: command -v sops >/dev/null 2>&1
+      register: is_sops_installed
+      ignore_errors: no
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  roles:
+    - kubernetes
+    - worker

@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    - name: apt update
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      register: apt_update
+      retries: 3
+      until: apt_update is success
+
+    - name: apt full upgrade
+      ansible.builtin.apt:
+        upgrade: full
+        autoclean: true
+        autoremove: true
+      register: apt_upgrade
+      retries: 5
+      until: apt_upgrade is success

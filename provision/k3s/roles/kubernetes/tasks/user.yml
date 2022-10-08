@@ -1,0 +1,17 @@
+---
+- include_vars: user.yml
+
+# Adds user
+- name: Add {{ username }}
+  ansible.builtin.user:
+    name: "{{ username }}"
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+
+# Append account to sudoers with implicit access to sudo provileges
+- name: Add {{ username }} to sudoers
+  ansible.builtin.copy:
+    content: "{{ username }} ALL=(ALL:ALL) NOPASSWD:ALL"
+    dest: "/etc/sudoers.d/{{ username }}_nopasswd"
+    mode: "0440"
