@@ -2,6 +2,6 @@
 kubeconfig
 # vscode-sops
 .decrypted~*.yaml
-*.age
+.decrypted~*.age
 # Ansible
 xanmanning.k3s*
