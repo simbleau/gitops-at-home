@@ -28,6 +28,9 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 - [ ] Mount access to the SOPS `keys.txt`
 - [ ] Set the file path of the SOPS keys:
   > `export SOPS_AGE_KEY_FILE="/mnt/../sops/age/keys.txt"`
+- [ ] Decrypt inventory files
+  > `sops -d ./inventory/workers.sops.yml > ./inventory/workers.yml`
+  > `sops -d ./inventory/masters.sops.yml > ./inventory/masters.yml`
 - [ ] Install ansible
   > `sudo apt install ansible`
 - [ ] Install ansible requirements
@@ -36,8 +39,6 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 ### Provisioning master nodes
 - [ ] Set the username for initial connection (will be deleted)
   > `export ANSIBLE_REMOTE_USER='ubuntu'`
-- [ ] Decrypt inventory file
-  > `sops -d ./inventory/masters.sops.yml > ./inventory/masters.yml`
 - [ ] Run provisioning playbook'
 ```ansible
 ansible-playbook \
@@ -48,8 +49,6 @@ ansible-playbook \
 ### Provisioning worker nodes
 - [ ] Set the username for initial connection (will be deleted)
   > `export ANSIBLE_REMOTE_USER='ubuntu'`
-- [ ] Decrypt inventory file
-  > `sops -d ./inventory/workers.sops.yml > ./inventory/workers.yml`
 - [ ] Run provisioning playbook'
   - [ ] Optional: add `--limit odd` or `--limit even` for half of the nodes
 ```ansible
