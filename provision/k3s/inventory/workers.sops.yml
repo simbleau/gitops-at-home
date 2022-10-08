@@ -1,23 +1,23 @@
 odd:
     hosts:
         buttercup:
-            ansible_connection: ENC[AES256_GCM,data:hL8t0DyGHPXzhuqfFzg=,iv:fz9jmnlE07quBvIrbnM5j17TwHS8cTziSLVY+UegyRU=,tag:ED0qtVb9fT4EZn04e8hmUQ==,type:str]
+            ansible_host: ENC[AES256_GCM,data:zVIl9PqP9O1nzYkd+Q4=,iv:K2ahWRyZ699z2VG2EZN+dwlLoO1lq84f+dcEx1QX+FE=,tag:RfqURr/z9188+y1QkuE6dw==,type:str]
         blossom:
-            ansible_connection: ENC[AES256_GCM,data:tE1x5I4XaODISxgjSjw=,iv:TcxfgCf8/gvQX8UuFWJ+bepKTVK3KbZ1y4kbS7N8CVQ=,tag:XWHS7MofOALa0wVqfqZ/Zw==,type:str]
+            ansible_host: ENC[AES256_GCM,data:QrUI2ip56u/XSMtyzME=,iv:uekQf1P143X8jtNxGqY7irRZ9VKWZ29YCszUB3hb+dQ=,tag:q1wawfHI1iHB10JQHk3HuA==,type:str]
         bliss:
-            ansible_connection: ENC[AES256_GCM,data:8vW9tukzJET6l3gjARI=,iv:EAKdCFPXWX1RFTsIxApiPw+wJYfyBMynD+HJvvCSqn8=,tag:l2xKQpj/ctTv6JnbqNDLaA==,type:str]
+            ansible_host: ENC[AES256_GCM,data:gHg4IuATsse2D75fxCc=,iv:abF0uUTreJ0DEhYFBcq//LRLK5rszi0HRCZ8H7UQ5dU=,tag:xhL6KWY2kdJK9HRDlhMT3w==,type:str]
         bubbles:
-            ansible_connection: ENC[AES256_GCM,data:3/FRtXvT7m7SpyyPynw=,iv:qW+ul6gBFgDPbMuU28nGn4lG466zwZb9L5VYVUXyXY0=,tag:jHubGK40cgHnWTddaUrcyA==,type:str]
+            ansible_host: ENC[AES256_GCM,data:NsLUPToH+VjtAHRghfA=,iv:jbV4GxqtAi3CPCLHqlxjvimxV5zdjLwDNbu7+nIBxSQ=,tag:uMrUxM9pPDglzzKUUImE1w==,type:str]
 even:
     hosts:
         leonardo:
-            ansible_connection: ENC[AES256_GCM,data:YHghlvW2SsNbC8SHi/E=,iv:Vq1Hy7fsNZltrTec2c5ijbWlNyT1N5aX1v2/yAbsZdM=,tag:kReAJePC7go71cpET570NQ==,type:str]
+            ansible_host: ENC[AES256_GCM,data:vTcogX23AgvSA91SmMQ=,iv:2uihQwjHXSevaOzK77B7f4wGFU1sB1uyndRd5mPp3T8=,tag:dW7qvtXHq5xPJdYSFv3fCA==,type:str]
         raphael:
-            ansible_connection: ENC[AES256_GCM,data:a7uXdK2txqytc69mN/A=,iv:jnk1l8AclRNe0LRhEWSE6zxQjtJTsc7YrRG4a34DdUw=,tag:KkY9zGAsc0IwNvet4QNiHw==,type:str]
+            ansible_host: ENC[AES256_GCM,data:87wAzokobY9L/FCMD2M=,iv:fOFhS6To7rUYUrmHYL/JDaBm3i71bHie2QcALUkdcI8=,tag:RoMK485L0MRa3UAY6S02zw==,type:str]
         donatello:
-            ansible_connection: ENC[AES256_GCM,data:9Z9sJWqA6GFqdtH2sWo=,iv:TTWRG7tldCslccIKOiH2fsq/7E18CooED1pkeKmk8zs=,tag:Hv/GaaK6KqFcZOd6PeAMGA==,type:str]
+            ansible_host: ENC[AES256_GCM,data:945laSSkK2muuNUT62A=,iv:CIwmfnax9whPhcsjTySIMF+T0+mx9S1wn4epQnV9n/M=,tag:D4vpeF+fTpjYQJks+nkhrA==,type:str]
         michelangelo:
-            ansible_connection: ENC[AES256_GCM,data:GmzF4+3nxt85PANMHVk=,iv:o04Y1/QjCJsKe9XVP5Yz8lB0l5HZn/QfMsgxuHuDTnM=,tag:E9R++CaOgVpkWx7e85+aLg==,type:str]
+            ansible_host: ENC[AES256_GCM,data:163y4hNd2ZnSot17MEk=,iv:Lgt+9qUJJeiql+412rrEQ4hUoZEMikTdpbCQPCGmnJY=,tag:biituB3AaBuvU+Hv7/SXeA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -33,8 +33,8 @@ sops:
             UnNSRXAveEpMVnlaL1dEbXFFT1pyd00K8S7ehqKLV3zghrdJ/BMYswuAcDsGS1LJ
             Ms/+TE+0kYHhAbI9ffnp/Mi1uFOUsurDwr29HdQ3E9W1BWfytyIx/w==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2022-10-08T00:46:01Z"
-    mac: ENC[AES256_GCM,data:ExsgodUW7ZSgD1x6sy3Sc6s7Fh+e+mdrr8nBbXsRbfg9Zgw4j5e/acIGqjifSDWy7rJ8rH/DYk5p7287NIpwNJhvjcdzOgd0iC4ixhfz/iouyYlQ0DnRfyhNnPtEycef9DbMIQ0LxjsR3DhGe93C8cNg0sj6DSmSwYlyxcKfU7g=,iv:mK9vJDdWgniMyz2b04v0yZTDvNVjLWkVFEKOsWwUg3c=,tag:3GvG+1OwwX3QDbL/yoWpqA==,type:str]
+    lastmodified: "2022-10-08T00:48:05Z"
+    mac: ENC[AES256_GCM,data:VLYVe+10qdSivwmNEfhv4kNtCQ2CEEFdUSct5lPxUZmE/G9gXYwFr6jQul3LwQht8lms6C2sOcOlKsaJpZQvi0Oa91wg39yQdAJ/SQ6GfB07OJBAQlvIaHaq/fQhEIx47+JextkT6ejzwLrLhIy2OsFsjLjM7Nqn+k3QaR/fSx0=,iv:cuwsCXDUmL/1fhsJsCOS2uMqaS17laKHjCphjWclPPA=,tag:Rncn5vgVf8vEvGG3IUlX7g==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.3
