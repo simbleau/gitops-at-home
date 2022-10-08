@@ -1,0 +1,7 @@
+# k8s
+kubeconfig
+# vscode-sops
+.decrypted~*.yaml
+*.age
+# Ansible
+xanmanning.k3s*
