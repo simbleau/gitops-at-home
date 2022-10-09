@@ -59,7 +59,7 @@ Over WAN, I have forwarded ports `80` and `443` from my router. I use [Cloudflar
 | HP ProDesk 600 G3 Mini      | 1   | 120GB SD | N/A          | 4GB   | Ubuntu 22.04 | Kubernetes Master |
 | Raspberry Pi 4B 2GB         | 4   | 32GB  SD | N/A          | 2GB   | Ubuntu 22.04 | Kubernetes Worker |
 | Raspberry Pi 3 Model B+     | 1   | 32GB  SD | N/A          | 1GB   | Ubuntu 22.04 | Kubernetes Worker |
-| AC Infinity CLOUDPLATE T1-N | 1   | N/A      | N/A          | N/A   | Ubuntu 22.04 | Air Cooling       |
+| AC Infinity CLOUDPLATE T1-N | 1   | N/A      | N/A          | N/A   | N/A          | Air Cooling       |
 | Kingston SATA 3 2.5" SSD    | 4   | N/A      | 240 GB       | N/A   | N/A          | SATA 3 SSD        |
 | QNAP TR-004 4 Bay DAS       | 1   | N/A      | 720 GB RAID5 | N/A   | N/A          | RAID 5 DAS        |
 | ADJ Products PC-100A PDU    | 1   | N/A      | N/A          | N/A   | N/A          | PDU               |
