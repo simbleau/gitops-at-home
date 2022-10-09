@@ -1,0 +1,6 @@
+---
+- include_vars: config.yml
+
+- name: Set hostname to {{ inventory_hostname }}
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"

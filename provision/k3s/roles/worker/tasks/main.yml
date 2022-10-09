@@ -1,3 +1,0 @@
----
-- name: Install K3S
-  include: k3s.yml

@@ -1,0 +1,36 @@
+---
+- hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Assert SOPS is installed
+      delegate_to: localhost
+      shell: command -v sops >/dev/null 2>&1
+      register: is_sops_installed
+      ignore_errors: no
+
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    - name: Load secrets
+      ansible.builtin.set_fact:
+        k3s_secrets: "{{ lookup('file', 'k3s.sops.yml')  | community.sops.decrypt(output_type='yaml') | from_yaml }}"
+    - name: Install Kubernetes
+      ansible.builtin.include_role:
+        name: xanmanning.k3s
+        public: true
+      vars:
+        k3s_state: installed
+        # (bool) Escalate user privileges for all tasks
+        k3s_become: true
+        # (string) Use a specific version of k3s
+        # renovate: datasource=github-releases depName=k3s-io/k3s
+        k3s_release_version: "v1.25.2+k3s1"
+        # (string) The IP of the cluster registration (single master node or kubevip)
+        k3s_registration_address: "{{ k3s_secrets['cluster_registration_address'] }}"
+        # (string)
+        k3s_control_token: "{{ k3s_secrets['cluster_control_token'] }}"

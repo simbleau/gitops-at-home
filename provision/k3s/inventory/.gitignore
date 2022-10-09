@@ -1,3 +1,2 @@
 # Prevent accidental decryption leakage
-masters.yml
-workers.yml
+inventory.yml

@@ -36,34 +36,54 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 - [ ] Install ansible requirements
   > `ansible-galaxy install -r requirements.yml`
 
-### Provisioning master nodes
-- [ ] Set the username for initial connection (will be deleted)
-  > `export ANSIBLE_REMOTE_USER='ubuntu'`
-- [ ] Run provisioning playbook'
+
+### Prepare
+Kubernetes requires system-specific changes to memory, cpu, scheduling, etc. The preparation playbook will make the required changes and reboot the system.
+- [ ] Run preparation
+  - [ ] Optional: add `--limit` with arguments (e.g. groups `master`, `worker`, or nodes `worker-1`)
 ```ansible
 ansible-playbook \
---inventory ./inventory/masters.yml \
-./playbooks/provision_masters.yml
+--user=ubuntu \
+--ask-become-pass \
+./playbooks/prepare.yml
 ```
 
-### Provisioning worker nodes
-- [ ] Set the username for initial connection (will be deleted)
-  > `export ANSIBLE_REMOTE_USER='ubuntu'`
-- [ ] Run provisioning playbook'
-  - [ ] Optional: add `--limit odd` or `--limit even` for half of the nodes
+### Installing cluster
+- [ ] Run installation
+  - [ ] Optional: add `--limit` with arguments (e.g. groups `master`, `worker`, or nodes `worker-1`)
 ```ansible
 ansible-playbook \
---inventory ./inventory/workers.yml \
-./playbooks/provision_workers.yml
+--user=ubuntu \
+--ask-become-pass \
+./playbooks/install.yml
+```
+
+### Restart cluster
+- [ ] Run playbook
+  - [ ] Optional: add `--limit` with arguments (e.g. groups `master`, `worker`, or nodes `worker-1`)
+```ansible
+ansible-playbook \
+--user=ubuntu \
+--ask-become-pass \
+./playbooks/restart.yml
 ```
 
 ### Reboot cluster
-- [ ] Set the username for initial connection (will be deleted)
-  > `export ANSIBLE_REMOTE_USER='ubuntu'`
-- [ ] Run provisioning playbook'
+- [ ] Run playbook
+  - [ ] Optional: add `--limit` with arguments (e.g. groups `master`, `worker`, or nodes `worker-1`)
 ```ansible
 ansible-playbook \
---inventory ./inventory/masters.yml \
---inventory ./inventory/workers.yml \
+--user=ubuntu \
+--ask-become-pass \
 ./playbooks/reboot.yml
+```
+
+### Nuke cluster
+⚠️ **This will destroy the Kubernetes cluster and remove all artifacts**.
+- [ ] Run playbook
+```ansible
+ansible-playbook \
+--user=ubuntu \
+--ask-become-pass \
+./playbooks/nuke.yml
 ```

@@ -1,7 +1,7 @@
 ---
 - include_vars: main.yml
 
-- name: Set up users
+- name: Setup users
   include: user.yml
 
 - name: Copy keys
@@ -9,3 +9,6 @@
 
 - name: Set locale
   include: locale.yml
+
+- name: Apply config
+  include: config.yml
