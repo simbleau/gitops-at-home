@@ -31,6 +31,19 @@
             enabled: true
     - name: System Configuration (2)
       block:
+        - name: System Configuration (2) | Apt update
+          ansible.builtin.apt:
+            update_cache: true
+            cache_valid_time: 3600
+          register: apt_update
+          retries: 3
+          until: apt_update is success
+        - name: System Configuration (2) | Install raspi kernel modules
+          ansible.builtin.apt:
+            name: "{{ item }}"
+            state: present
+          loop: [linux-modules-extra-raspi]
+          when: "'raspi' in ansible_kernel"
         - name: System Configuration (2) | Enable kernel modules now
           community.general.modprobe:
             name: "{{ item }}"
