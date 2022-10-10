@@ -29,8 +29,7 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 - [ ] Set the file path of the SOPS keys:
   > `export SOPS_AGE_KEY_FILE="/mnt/../sops/age/keys.txt"`
 - [ ] Decrypt inventory files
-  > `sops -d ./inventory/workers.sops.yml > ./inventory/workers.yml`
-  > `sops -d ./inventory/masters.sops.yml > ./inventory/masters.yml`
+  > `sops -d ./inventory/inventory.sops.yml > ./inventory/inventory.yml`
 - [ ] Install ansible
   > `sudo apt install ansible`
 - [ ] Install ansible requirements
