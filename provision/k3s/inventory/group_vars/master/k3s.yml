@@ -8,10 +8,15 @@ k3s_control_node: true
 # (dict) k3s settings for all control-plane nodes
 k3s_server:
   node-ip: "{{ ansible_host }}"
+  tls-san:
+    - "{{ inventory_hostname }}"
   # Disable Docker - this will use the default containerd CRI
   docker: false
+  # Disable kube-router netpol controller
   disable-network-policy: true
+  # Disable cloud controller - using bare metal
   disable-cloud-controller: true
+  # Permissions on kubeconfig
   write-kubeconfig-mode: "644"
   # Network CIDR to use for pod IPs
   cluster-cidr: "10.42.0.0/16"
