@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: my-website
-          image: simbleau/my-website:latest
+          image: simbleau/website:latest
           ports:
             - containerPort: 80

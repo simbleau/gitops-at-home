@@ -4,8 +4,7 @@ metadata:
   name: website-svc
 spec:
   selector:
-    matchLabels:
-      app: website
+    name: website
   ports:
     - protocol: TCP
       port: 80
