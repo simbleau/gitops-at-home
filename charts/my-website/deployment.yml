@@ -8,14 +8,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: website
+      run: website-runner
   template:
     metadata:
       labels:
-        app: website
+        run: website-runner
     spec:
       containers:
-        - name: my-website
+        - name: website
           image: simbleau/website:latest
           ports:
             - containerPort: 80

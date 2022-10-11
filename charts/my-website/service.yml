@@ -4,8 +4,7 @@ metadata:
   name: website-svc
 spec:
   selector:
-    name: website
+    run: website-runner
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
