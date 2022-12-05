@@ -32,7 +32,8 @@ I run a fully conformant Kubernetes cluster at home with K3S, provisioned overto
 
 ## 🏁 Provisioning
 Currently, I automate the provisioning of the following systems at home:
-- [__My Ubuntu workstation__](./provision/ubuntu-workstation/)
+- [__My Ubuntu workstation__](./provision/workstation/)
+- [__My MacOS workstation__](./provision/workstation/)
 - [__My K3S Kubernetes cluster__](./provision/k3s/)
 
 📙 _[__Click here__](./provision/README.md) to see my Ansible playbooks and roles for provisioning my home infrastructure._

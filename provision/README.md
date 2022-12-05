@@ -16,10 +16,10 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles f
 
 ## 📁 Directories
 - [__`k8s`__](./k8s/): Ansible matter to provision my Kubernetes cluster.
-- [__`ubuntu-workstation`__](./ubuntu-workstation/): Ansible matter to provision my Ubuntu workstation.
+- [__`workstation`__](./workstation/): Ansible matter to provision a Ubuntu or MacOS workstation.
 
 ---
 
 ## 🏁 Provisioning
-- _[__Click here__](./ubuntu-workstation/README.md) for instructions to provision my Ubuntu workstation._
+- _[__Click here__](./workstation/README.md) for instructions to provision my workstation._
 - _[__Click here__](./k8s/README.md) for instructions to provision my Kubernetes cluster._
