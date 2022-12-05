@@ -1,0 +1,48 @@
+---
+
+- name: Create SOPS directory
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/Library/Application Support/sops/age"
+    state: directory
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0775
+
+- name: Load SOPS key
+  ansible.builtin.set_fact:
+    sops_keys: "{{ lookup('file', 'keys.txt.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Stage SOPS keys.txt
+  ansible.builtin.copy:
+    content: "{{ sops_keys }}"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/sops/age/keys.txt"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0400
+
+- name: Create .ssh directory
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.ssh"
+    state: directory
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0775
+
+- name: Load SSH private key
+  ansible.builtin.set_fact:
+    id_rsa: "{{ lookup('file', 'id_rsa.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Load SSH public key
+  ansible.builtin.set_fact:
+    id_rsa_pub: "{{ lookup('file', 'id_rsa.pub.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Stage SSH private key
+  ansible.builtin.copy:
+    content: "{{ id_rsa }}\n"
+    dest: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0400
+
+- name: Stage SSH public key
+  ansible.builtin.copy:
+    content: "{{ id_rsa_pub }}\n"
+    dest: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0444

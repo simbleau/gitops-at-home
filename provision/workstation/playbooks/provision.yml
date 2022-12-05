@@ -1,16 +1,28 @@
 ---
-- hosts: all
-  become: true
-  gather_facts: false
+- name: Provision System
+  hosts: all
+  become: false
+  gather_facts: true
   any_errors_fatal: true
   pre_tasks:
-    - name: Assert SOPS is installed
-      delegate_to: localhost
-      shell: command -v sops >/dev/null 2>&1
-      register: is_sops_installed
-      ignore_errors: no
+    # Install sops
+    # TODO: Blocked on https://github.com/ansible-collections/community.sops/issues/128
+    # - name: Install SOPS
+    #  ansible.builtin.include_role:
+    #    name: community.sops.install
+    #  vars:
+    #    sops_install_on_localhost: true
+
     - name: Pausing for 5 seconds...
-      pause:
+      ansible.builtin.pause:
         seconds: 5
-  roles:
-    - ubuntu
+  tasks:
+    - name: Install Ubuntu
+      ansible.builtin.include_role:
+        name: ubuntu
+      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '22.04'
+
+    - name: Install MacOS
+      ansible.builtin.include_role:
+        name: macos
+      when: ansible_distribution == 'MacOSX' and ansible_distribution_version == '13.0.1'

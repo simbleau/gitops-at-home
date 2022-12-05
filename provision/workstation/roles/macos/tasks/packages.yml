@@ -1,0 +1,48 @@
+---
+- name: Upgrade all system packages
+  community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+  register: upgrade
+  retries: 5
+  until: upgrade is success
+
+- name: Install GitHub CLI
+  community.general.homebrew:
+    name: gh # GitHub CLI
+    state: present
+  register: gh_cli
+  retries: 5
+  until: gh_cli is success
+
+# Install Rust
+- name: Checking for Rust
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
+  register: rustup
+- name: Download Rust
+  ansible.builtin.get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+    mode: "0755"
+    force: true
+  when: not rustup.stat.exists
+- name: Install Rust
+  ansible.builtin.command: /tmp/sh.rustup.rs -y
+  when: not rustup.stat.exists
+
+# Install zsh completions
+- name: Make zsh completions directory
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.zfunc"
+    state: directory
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0755
+
+- name: Install Rustup completions
+  ansible.builtin.shell: rustup completions zsh > {{ lookup('env', 'HOME') }}/.zfunc/rustup
+  when: not rustup.stat.exists
+
+- name: Install GitHub CLI completions
+  ansible.builtin.shell: gh completion -s zsh > {{ lookup('env', 'HOME') }}/.zfunc/gh
+  when: gh_cli is success

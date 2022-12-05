@@ -1,0 +1,39 @@
+# Increase history size
+HISTSIZE=5000
+HISTFILESIZE=10000
+# Increase history size (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups # ignore duplicate lines
+export HISTCONTROL=ignoreboth # ignore same sucessive entries
+export HISTIGNORE="history"
+
+# Coloring
+export CLICOLOR=1
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Aliases
+alias ls='ls -F --color'
+alias ll='ls --color -h -Fla'
+alias l='ls --color -h -Fla'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v -i'
+alias mkdir='mkdir -pv'
+
+# Setup NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Adds autocompletions
+fpath+=~/.zfunc
+
+# Prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats 'on %F{red}%b%f '
+setopt PROMPT_SUBST
+PROMPT='%B%T%b %F{012}%n%f ${vcs_info_msg_0_}~ '

@@ -1,0 +1,8 @@
+---
+# Append account to sudoers with implicit access to sudo provileges
+- name: "Add sudoer: {{ lookup('env', 'USER') }}"
+  ansible.builtin.copy:
+    content: "{{ lookup('env', 'USER') }} ALL=(ALL:ALL) NOPASSWD:ALL"
+    dest: "/etc/sudoers.d/{{ lookup('env', 'USER') }}_nopasswd"
+    mode: 0440
+  become: true
