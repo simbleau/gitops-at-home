@@ -43,8 +43,5 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 - [ ] Run provisioning playbook
 ```ansible
 ansible-playbook \
---connection=local \
---inventory 127.0.0.1, \
---limit 127.0.0.1 \
 ./playbooks/provision.yml
 ```

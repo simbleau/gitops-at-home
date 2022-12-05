@@ -1,6 +1,7 @@
 ---
 - name: Provision System
-  hosts: all
+  hosts: localhost
+  connection: local
   become: false
   gather_facts: true
   any_errors_fatal: true
