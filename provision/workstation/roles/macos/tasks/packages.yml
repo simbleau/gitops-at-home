@@ -9,7 +9,7 @@
 
 - name: Install GitHub CLI
   community.general.homebrew:
-    name: gh # GitHub CLI
+    name: gh
     state: present
   register: gh_cli
   retries: 5
@@ -41,6 +41,10 @@
 
 - name: Install Rustup completions
   ansible.builtin.shell: rustup completions zsh > {{ lookup('env', 'HOME') }}/.zfunc/rustup
+  when: not rustup.stat.exists
+
+- name: Install Cargo completions
+  ansible.builtin.shell: cargo completions zsh cargo > {{ lookup('env', 'HOME') }}/.zfunc/cargo
   when: not rustup.stat.exists
 
 - name: Install GitHub CLI completions
