@@ -6,6 +6,8 @@ server:
             mnt: ENC[AES256_GCM,data:0GllVwg=,iv:wqsmS3dk2V6FeUV0iUMqHDMxKF1KsY2G5oDVtHXoLwU=,tag:xUbhFMSDQXedZ7I+Os6sYA==,type:str]
 client:
     hosts:
+        spencer-mac:
+            ansible_host: ENC[AES256_GCM,data:0suKBk1tGN1t+MAC2XE=,iv:nyrrgpueN0oirkksrTl3nu6s5GbUD4hLU7B6Am3dgq8=,tag:V2WvAIX0d6pwTNrHqwqzlA==,type:str]
         buttercup:
             ansible_host: ENC[AES256_GCM,data:CZUbMOH9ujUTP3w6djU=,iv:X8jO/LNCrctNX2QaR/UYG7hL7aWzBpfPbGORIKWNGq0=,tag:40fW9iVbT0I4J/KJIZKGhg==,type:str]
         blossom:
@@ -37,8 +39,8 @@ sops:
             ZE85MTFNWjloVE0rK3pSeCtjOThtdVkKQugCg5cjwhvP8RW1VShqkgqRVXqMHDk8
             92w16mAxVn09xJ9Hb4R7cxr08Rfe6jbrlXGGvhWYS8tfDD+XIkcTkg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2022-12-09T22:33:38Z"
-    mac: ENC[AES256_GCM,data:F5JpjaU3nIjJmuGFI9nAHo+AuNICLOl+ED1Tr07lt8v+/TycMbkyyQVqgyAyixm/vtVGV6TdBEp65/uadN1B3/qXD0MC+fz0LTVIbiu8l0A7HvYV09YjBWnl72gWIK8DuF+/YCkEj9iZiinETfdowObW1YCPiYc2jBGgTmCBqdg=,iv:/YBHbvSMlnGGT20s1tTsDxwBFHMdjmojvVnOkVmFNYw=,tag:x8inaX3Pni6W84Lqh5UC0w==,type:str]
+    lastmodified: "2022-12-09T23:29:01Z"
+    mac: ENC[AES256_GCM,data:q11s2Ph6q9lbmqJX7DuGXrb53k2w49WFToMWKVuHP7xVPUM0b1UvN4RgOZhFtxtYiW39qzQpiFsr4mOHfCl0vTCjhprolyV2OiRz1gCyO+vduEWcCLBx+Crn9aNzd/ouLZHMBxGPIaMS9PIFbcs+GEMPow7FXJihNmmIM6HyO5Y=,iv:GgSQdC6J6NISfrQOCZc5Fw9e91UXEd1P9g+7VgEvZDE=,tag:kOnkBD4R3UibY74y/N5nDw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.3
