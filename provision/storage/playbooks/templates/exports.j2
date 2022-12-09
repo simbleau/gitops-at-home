@@ -1,0 +1,6 @@
+# /etc/exports: the access control list for filesystems which may be exported
+#               to NFS clients.  See exports(5).
+#
+{% for host in groups['server'] %}
+{{ hostvars[host].mnt }}     {{ hostvars[host].ansible_host }}/24(rw,sync,no_root_squash,no_subtree_check)
+{% endfor %}

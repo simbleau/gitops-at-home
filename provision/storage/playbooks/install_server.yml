@@ -1,0 +1,56 @@
+---
+- name: Install storage
+  hosts:
+    - server
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      ansible.builtin.pause:
+        seconds: 5
+  tasks:
+    - name: Create mountable dir
+      ansible.builtin.file:
+        path: "{{ hostvars[inventory_hostname].mnt }}"
+        state: directory
+        mode: 0777
+        owner: root
+        group: root
+
+    - name: Get mount filesystem
+      community.general.filesystem:
+        fstype: vfat
+        dev: "{{ hostvars[inventory_hostname].src }}"
+
+    - name: Set mountpoint
+      ansible.posix.mount:
+        name: "{{ hostvars[inventory_hostname].mnt }}"
+        src: "{{ hostvars[inventory_hostname].src }}"
+        fstype: vfat
+        opts: defaults
+        dump: 0
+        passno: 0
+        state: mounted
+
+    - name: Install NFS dependencies
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+        update-cache: true
+      with_items:
+        - nfs-common
+        - nfs-kernel-server
+
+    - name: Copy /etc/exports
+      ansible.builtin.template:
+        src: exports.j2
+        dest: /etc/exports
+        owner: root
+        group: root
+        mode: 0600
+
+    - name: Restart nfs server
+      ansible.builtin.service:
+        name: nfs-kernel-server
+        state: restarted
