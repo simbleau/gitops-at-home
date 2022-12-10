@@ -34,12 +34,12 @@ This directory contains [__Ansible__](https://ansible.com) playbooks and roles t
 - [ ] Install ansible requirements
   > `ansible-galaxy install -r requirements.yml`
 
-### Installing servers
+### Installation
 - [ ] Run installation
   - [ ] Optional: add `--limit` with arguments (e.g. groups `server`, `client`, or nodes `server-1`)
 ```ansible
 ansible-playbook \
 --user=ubuntu \
 --ask-become-pass \
-./playbooks/install_server.yml
+./playbooks/install.yml
 ```
