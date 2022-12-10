@@ -2,5 +2,5 @@
 #               to NFS clients.  See exports(5).
 #
 {% for client in groups['client'] %}
-{{ hostvars[inventory_hostname].mnt }}     {{ hostvars[client].ansible_host }}/24(rw,sync,no_root_squash,no_subtree_check)
+{{ hostvars[inventory_hostname].mnt }}     {{ hostvars[client].ansible_host }}/24(rw,insecure,no_root_squash,no_subtree_check)
 {% endfor %}
