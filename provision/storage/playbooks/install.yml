@@ -1,0 +1,49 @@
+---
+- name: Install storage
+  hosts:
+    - server
+    - client
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      ansible.builtin.pause:
+        seconds: 5
+  tasks:
+    - name: Create mountable dir
+      ansible.builtin.file:
+        path: "{{ hostvars[item].mnt }}"
+        state: directory
+        mode: 0777
+        owner: root
+        group: root
+      with_items: "{{ groups['server'] }}"
+
+    - name: Install servers
+      ansible.builtin.include_role:
+        name: server
+      when: inventory_hostname in groups['server']
+
+    - name: Install clients
+      ansible.builtin.include_role:
+        name: client
+      when: inventory_hostname in groups['client']
+
+    - name: Restart nfs servers
+      ansible.builtin.service:
+        name: nfs-kernel-server
+        state: restarted
+      when: inventory_hostname in groups['server']
+
+    - name: Mount to clients
+      ansible.posix.mount:
+        name: "{{ hostvars[item].mnt }}"
+        src: "{{ hostvars[item].ansible_host }}:/{{ hostvars[item].mnt }}"
+        fstype: nfs
+        opts: defaults
+        dump: 0
+        passno: 0
+        state: mounted
+      with_items: "{{ groups['server'] }}"
+      when: inventory_hostname in groups['client']

@@ -6,8 +6,6 @@ server:
             mnt: ENC[AES256_GCM,data:0GllVwg=,iv:wqsmS3dk2V6FeUV0iUMqHDMxKF1KsY2G5oDVtHXoLwU=,tag:xUbhFMSDQXedZ7I+Os6sYA==,type:str]
 client:
     hosts:
-        spencer-mac:
-            ansible_host: ENC[AES256_GCM,data:0suKBk1tGN1t+MAC2XE=,iv:nyrrgpueN0oirkksrTl3nu6s5GbUD4hLU7B6Am3dgq8=,tag:V2WvAIX0d6pwTNrHqwqzlA==,type:str]
         buttercup:
             ansible_host: ENC[AES256_GCM,data:CZUbMOH9ujUTP3w6djU=,iv:X8jO/LNCrctNX2QaR/UYG7hL7aWzBpfPbGORIKWNGq0=,tag:40fW9iVbT0I4J/KJIZKGhg==,type:str]
         blossom:
@@ -18,13 +16,13 @@ client:
             ansible_host: ENC[AES256_GCM,data:GfRqw/GvrS3jk6wSGWw=,iv:9TJpvYvrhnPVer1czBGCXEJiVvzG+NEcAO9wdvtHrRI=,tag:l+Y5zFJdWbUyXejh4p4kew==,type:str]
         leonardo:
             ansible_host: ENC[AES256_GCM,data:bmkz0dK9TbVyldZjsgw=,iv:kU82IQs2DQ62Mn4nopHmGdziDV+pFL4p1ZJEXDZEvuU=,tag:u0AAZdUhWi83O8uWzksMxQ==,type:str]
-        raphael:
-            ansible_host: ENC[AES256_GCM,data:gl6/b/syV9yDqbjr6j4=,iv:6nfpnOI6TpP0nZAkpVgUwexNigNmSGJNyB42bUuRp0w=,tag:0hIEMyuXcFGQirdjztez5Q==,type:str]
-        donatello:
-            ansible_host: ENC[AES256_GCM,data:qyP9i5hYE1KN5Mxbvig=,iv:Q3wnoUB/G9ol36nhWMdNx0To5kzaTwoWEUx/7YJYTn0=,tag:4IWj5pKWzEC7MwxWxM1fsg==,type:str]
-        michelangelo:
-            ansible_host: ENC[AES256_GCM,data:wglzXxWr+QNclxZYifQ=,iv:eWF3QnfzySdwsDkDfXgndCFHDF891Hvch0S5LpfQSyU=,tag:3fxXe4JkDMJsOyfN4JBk0w==,type:str]
 sops:
+#ENC[AES256_GCM,data:WzOOxMI7NMIh,iv:Lqux9LYJMpnUlck25XBTkkAiFq7SVf2MFZmCMHbNEtw=,tag:lPVtgodlhQCY5g/vvggn1g==,type:comment]
+#ENC[AES256_GCM,data:t59724Jjas2yV900wbtd2fPf92gUsfabpL8uAl1mRki4,iv:Tokl1D3SCLYn119h843KONpx4vBOG0FD03ezCYMBEME=,tag:1SWQ4dtg56M3P2DGRFNS7A==,type:comment]
+#ENC[AES256_GCM,data:FATjWzyFZFzLLLE=,iv:UJf0UzOctc+syBb39EcynfqNBPXJQAUnPGY2c4zjMiU=,tag:HdTjb291+1TtvgFjCVH1cw==,type:comment]
+#ENC[AES256_GCM,data:iIsOGXgMZwcqT5/7oKZ2fFITqXRg+JX2q6S7ow9y2D7M,iv:F8yMj+vIJSbKJQvhSP2tgbPLbw8tAm8zRNSNIvgDAVE=,tag:As3bFcTkJROI7UeKN/C+BA==,type:comment]
+#ENC[AES256_GCM,data:wFWDWsLFLEdGfwHHdWI=,iv:/yZBMz50d01EDa8jXBDi7ZMqsu9njdsCNPi5FjbxCXU=,tag:Q53TsRMbLE68NhZ0KJIsSg==,type:comment]
+#ENC[AES256_GCM,data:Fsifs8BpaGMeqYkKo6KjB58u14J5iDK+QRqBz3pH5x+x,iv:hi25f/EFOLt2YBPKagGPanaSDntc5U37zss3bInNglI=,tag:kS5lZvft5mZkMPo3zmSdQw==,type:comment]
     kms: []
     gcp_kms: []
     azure_kv: []
@@ -39,8 +37,8 @@ sops:
             ZE85MTFNWjloVE0rK3pSeCtjOThtdVkKQugCg5cjwhvP8RW1VShqkgqRVXqMHDk8
             92w16mAxVn09xJ9Hb4R7cxr08Rfe6jbrlXGGvhWYS8tfDD+XIkcTkg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2022-12-09T23:29:01Z"
-    mac: ENC[AES256_GCM,data:q11s2Ph6q9lbmqJX7DuGXrb53k2w49WFToMWKVuHP7xVPUM0b1UvN4RgOZhFtxtYiW39qzQpiFsr4mOHfCl0vTCjhprolyV2OiRz1gCyO+vduEWcCLBx+Crn9aNzd/ouLZHMBxGPIaMS9PIFbcs+GEMPow7FXJihNmmIM6HyO5Y=,iv:GgSQdC6J6NISfrQOCZc5Fw9e91UXEd1P9g+7VgEvZDE=,tag:kOnkBD4R3UibY74y/N5nDw==,type:str]
+    lastmodified: "2022-12-10T17:24:53Z"
+    mac: ENC[AES256_GCM,data:Ij/TWrT/pI1CmbbecpCmZ7ioXl30XLQ7/haC3W7TwjQYPxc5TWnlbKLSdn2jQjDfHzgIQRJvYZwOKrZCIliwf/1ujYE4nK6xSiginOaMhzKCGwvPRAXlS5w8FqbN0zaXjfTkVCUVy8rBFfyrNn42vsomDTSZCYWDXapjyNPjocA=,iv:97OUhwA9IcQMbw1VeS8s5l/HJTY/LnuNGSIvjMzrP+M=,tag:NMhlYzhpqJOFJeIhUOmg+g==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.3

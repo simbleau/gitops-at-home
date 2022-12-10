@@ -1,0 +1,8 @@
+---
+- name: Install NFS dependencies
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+    update-cache: true
+  with_items:
+    - nfs-common

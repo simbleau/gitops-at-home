@@ -4,3 +4,5 @@
 {% for client in groups['client'] %}
 {{ hostvars[inventory_hostname].mnt }}     {{ hostvars[client].ansible_host }}/24(rw,insecure,no_subtree_check,all_squash,anonuid=0,anongid=0)
 {% endfor %}
+# Manual entries
+{{ hostvars[inventory_hostname].mnt }}     192.168.100.68/24(rw,insecure,no_subtree_check,all_squash,anonuid=0,anongid=0)
