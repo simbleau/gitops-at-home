@@ -1,0 +1,32 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cddns-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cddns
+  template:
+    metadata:
+      labels:
+        app: cddns
+    spec:
+      volumes: # Expose inventory as volume
+        - name: "inventory"
+          configMap:
+            name: "cddns-inventory"
+      containers:
+        - name: cddns
+          image: simbleau/cddns:latest
+          volumeMounts:
+            - name: inventory # Mount inventory file
+              mountPath: "inventory.yaml"
+              readOnly: true
+          env:
+            - name: CDDNS_VERIFY_TOKEN
+              valueFrom: # Cloudflare API token
+              secretKeyRef:
+                name: cddns-api-token
+                key: token

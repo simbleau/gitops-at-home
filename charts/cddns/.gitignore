@@ -1,0 +1,2 @@
+# Prevent accidental key leakage
+secret.yml
