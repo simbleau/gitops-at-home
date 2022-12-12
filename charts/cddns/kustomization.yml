@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - secret.yml
   - deployment.yml
+  - inventory.yml
   - namespace.yml
 namespace: cddns
