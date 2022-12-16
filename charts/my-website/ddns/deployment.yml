@@ -20,6 +20,7 @@ spec:
       containers:
         - name: cddns
           image: simbleau/cddns:latest
+          imagePullPolicy: Always
           volumeMounts:
             - name: inventory # Mount inventory file
               mountPath: /opt/etc/cddns/
