@@ -11,8 +11,12 @@
     # - name: Install SOPS
     #  ansible.builtin.include_role:
     #    name: community.sops.install
-    #  vars:
-    #    sops_install_on_localhost: true
+    - name: Assert SOPS is installed
+      delegate_to: localhost
+      ansible.builtin.shell: command -v sops >/dev/null 2>&1
+      register: is_sops_installed
+      changed_when: is_sops_installed.rc != 0
+      ignore_errors: false
 
     - name: Pausing for 5 seconds...
       ansible.builtin.pause:
