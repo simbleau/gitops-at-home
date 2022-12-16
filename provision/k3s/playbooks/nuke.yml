@@ -1,10 +1,12 @@
 ---
-- hosts:
+- name: Nuke cluster
+  hosts:
     - master
     - worker
   become: true
   gather_facts: true
   any_errors_fatal: true
+  ignore_unreachable: true
   vars_prompt:
     - name: nuke
       prompt: |-

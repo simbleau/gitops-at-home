@@ -1,24 +1,31 @@
 ---
-- hosts:
+- name: Install cluster
+  hosts:
     - master
     - worker
   become: true
   gather_facts: true
   any_errors_fatal: true
+  ignore_unreachable: true
   pre_tasks:
+    # Install sops
+    # TODO: Blocked on https://github.com/ansible-collections/community.sops/issues/128
+    # - name: Install SOPS
+    #  ansible.builtin.include_role:
+    #    name: community.sops.install
     - name: Assert SOPS is installed
       delegate_to: localhost
-      shell: command -v sops >/dev/null 2>&1
+      ansible.builtin.shell: command -v sops >/dev/null 2>&1
       register: is_sops_installed
-      ignore_errors: no
+      ignore_errors: false
 
     - name: Pausing for 5 seconds...
-      pause:
+      ansible.builtin.pause:
         seconds: 5
   tasks:
     - name: Load secrets
       ansible.builtin.set_fact:
-        k3s_secrets: "{{ lookup('file', 'k3s.sops.yml')  | community.sops.decrypt(output_type='yaml') | from_yaml }}"
+        k3s_secrets: "{{ lookup('file', 'k3s.sops.yml') | community.sops.decrypt(output_type='yaml') | from_yaml }}"
     - name: Install Kubernetes
       ansible.builtin.include_role:
         name: xanmanning.k3s
@@ -35,7 +42,7 @@
         # (string)
         k3s_control_token: "{{ k3s_secrets['cluster_control_token'] }}"
 
-    - name: Get absolute path to this Git repository
+    - name: Get absolute path to this git repository
       delegate_to: localhost
       become: false
       run_once: true

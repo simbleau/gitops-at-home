@@ -1,16 +1,18 @@
 ---
-- hosts:
+- name: System upgrade for cluster
+  hosts:
     - master
     - worker
   become: true
   gather_facts: true
   any_errors_fatal: true
+  ignore_unreachable: true
   pre_tasks:
     - name: Pausing for 5 seconds...
-      pause:
+      ansible.builtin.pause:
         seconds: 5
   tasks:
-    - name: apt update
+    - name: Cache update
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
@@ -18,7 +20,7 @@
       retries: 3
       until: apt_update is success
 
-    - name: apt full upgrade
+    - name: Full upgrade
       ansible.builtin.apt:
         upgrade: full
         autoclean: true

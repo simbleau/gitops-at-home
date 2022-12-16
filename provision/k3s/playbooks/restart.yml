@@ -1,22 +1,18 @@
 ---
-- hosts:
+- name: Restart cluster
+  hosts:
     - master
     - worker
   become: true
   gather_facts: true
   any_errors_fatal: true
+  ignore_unreachable: true
   pre_tasks:
-    - name: Assert SOPS is installed
-      delegate_to: localhost
-      shell: command -v sops >/dev/null 2>&1
-      register: is_sops_installed
-      ignore_errors: no
-
     - name: Pausing for 5 seconds...
-      pause:
+      ansible.builtin.pause:
         seconds: 5
   tasks:
-    - name: Install Kubernetes
+    - name: Restart Kubernetes
       ansible.builtin.include_role:
         name: xanmanning.k3s
         public: true
