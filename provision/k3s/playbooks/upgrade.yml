@@ -20,7 +20,7 @@
       retries: 3
       until: apt_update is success
 
-    - name: Full upgrade
+    - name: Upgrade
       ansible.builtin.apt:
         upgrade: full
         autoclean: true
