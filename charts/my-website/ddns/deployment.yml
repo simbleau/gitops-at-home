@@ -41,7 +41,8 @@ spec:
           readinessProbe:
             exec:
               command:
-                - cddns verify
+                - cddns
+                - verify
             # Start readyness checks after 10s
             initialDelaySeconds: 10
             # 5 min to startup (30 * 10 = 300s)
@@ -50,7 +51,8 @@ spec:
           livenessProbe:
             exec:
               command:
-                - cddns verify
+                - cddns
+                - verify
             initialDelaySeconds: 10
             failureThreshold: 1
             periodSeconds: 10
