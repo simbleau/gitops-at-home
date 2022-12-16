@@ -17,7 +17,7 @@
         msg: Rebooting nodes
       when: inventory_hostname in groups['worker']['odd']
 
-    - name: Pausing for 60 seconds...
+    - name: Pausing for 120 seconds...
       ansible.builtin.pause:
         seconds: 120
 
