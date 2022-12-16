@@ -5,6 +5,11 @@ metadata:
   name: ddns-deployment
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: cddns
@@ -33,3 +38,19 @@ spec:
                 secretKeyRef:
                   name: cddns-api-token
                   key: token
+          readinessProbe:
+            exec:
+              command:
+                - cddns verify
+            # Start readyness checks after 10s
+            initialDelaySeconds: 10
+            # 5 min to startup (30 * 10 = 300s)
+            failureThreshold: 30
+            periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - cddns verify
+            initialDelaySeconds: 10
+            failureThreshold: 1
+            periodSeconds: 10
