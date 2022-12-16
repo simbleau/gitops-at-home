@@ -24,7 +24,7 @@ spec:
             name: "cddns-inventory"
       containers:
         - name: cddns
-          image: simbleau/cddns:latest
+          image: simbleau/cddns:v0.2.3
           imagePullPolicy: Always
           volumeMounts:
             - name: inventory # Mount inventory file

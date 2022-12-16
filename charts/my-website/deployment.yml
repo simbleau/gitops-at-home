@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: simbleau/website:latest
+          image: simbleau/website:b0caa162bcf227424208410d53e75408f5df2326c94f78b432674e8e523e92bb
           imagePullPolicy: Always
           ports:
             - containerPort: 80
