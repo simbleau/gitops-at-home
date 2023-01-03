@@ -15,7 +15,7 @@
     - name: Rebooting odd nodes
       ansible.builtin.reboot:
         msg: Rebooting nodes
-      when: inventory_hostname in groups['worker']['odd']
+      when: inventory_hostname in groups['odd']
 
     - name: Pausing for 120 seconds...
       ansible.builtin.pause:
@@ -24,7 +24,7 @@
     - name: Rebooting even nodes
       ansible.builtin.reboot:
         msg: Rebooting nodes
-      when: inventory_hostname in groups['worker']['even']
+      when: inventory_hostname in groups['even']
 
     - name: Pausing for 120 seconds...
       ansible.builtin.pause:
