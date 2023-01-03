@@ -3,10 +3,6 @@
 <img src="https://simpleicons.org/icons/homeassistant.svg" width="144px" height="144px"/>
 
 # Home Ops
-[![internet](https://img.shields.io/uptimerobot/status/m791626909-5410cf23ca18cabcf74e32fa?color=lightgray&label=my%20home%20internet&style=flat-square&logo=opnSense&logoColor=white)](https://uptimerobot.com)
-[![website](https://img.shields.io/uptimerobot/status/m791626907-5129386a08c0539012946152?logo=googlechrome&logoColor=white&color=lightgray&label=my%20website&style=flat-square)](https://spencer.imbleau.com)
-[![home assistant](https://img.shields.io/uptimerobot/status/m791626943-e78c1a531a0ebfe443491da8?logo=homeassistant&logoColor=white&color=lightgray&label=my%20home%20assistant&style=flat-square)](https://www.home-assistant.io/)
-
 </div>
 
 ---
@@ -40,8 +36,8 @@ Currently, I automate the provisioning of the following systems at home:
 
 ---
 
-## 🌐 DNS
-Over WAN, I have forwarded ports `80` and `443` from my router. I use [Cloudflare](https://www.cloudflare.com/) as a proxy to hide my home WAN IP.
+## 🌐 Dynamic DNS
+Over WAN, I have forwarded ports `80` and `443` from my router. I use [Cloudflare](https://www.cloudflare.com/) as a proxy to hide my home WAN IP. I use [cddns](https://github.com/simbleau/cddns) as my Dynamic DNS.
 
 ---
 
