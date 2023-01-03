@@ -24,7 +24,7 @@ spec:
             name: "cddns-inventory"
       containers:
         - name: cddns
-          image: simbleau/cddns:v0.2.3
+          image: simbleau/cddns:v0.4.0
           imagePullPolicy: Always
           volumeMounts:
             - name: inventory # Mount inventory file
@@ -43,10 +43,7 @@ spec:
               command:
                 - cddns
                 - verify
-            # Start readyness checks after 10s
-            initialDelaySeconds: 10
-            # 5 min to startup (30 * 10 = 300s)
-            failureThreshold: 30
+            failureThreshold: 3
             periodSeconds: 10
           livenessProbe:
             exec:
@@ -54,5 +51,5 @@ spec:
                 - cddns
                 - verify
             initialDelaySeconds: 10
-            failureThreshold: 1
+            failureThreshold: 3
             periodSeconds: 10
