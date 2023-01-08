@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: website-deployment
+  name: rgx-website-deployment
   labels:
-    app: website
+    app: rgx-website
 spec:
   replicas: 2
   strategy:
@@ -13,14 +13,14 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      run: website-runner
+      run: rgx-website-runner
   template:
     metadata:
       labels:
-        run: website-runner
+        run: rgx-website-runner
     spec:
       containers:
-        - name: website
+        - name: rgx-website
           image: simbleau/website:latest
           imagePullPolicy: Always
           ports:

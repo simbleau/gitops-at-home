@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: website-svc
+  name: rgx-website-svc
 spec:
   selector:
-    run: website-runner
+    run: rgx-website-runner
   ports:
     - protocol: TCP
       port: 80
