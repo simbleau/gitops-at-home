@@ -10,4 +10,4 @@ resources:
   - ddns/deployment.yml
   - ddns/inventory.yml
   - ddns/secret.yml
-namespace: rugex
+namespace: website
