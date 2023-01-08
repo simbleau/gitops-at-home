@@ -1,8 +1,6 @@
 {
     "recommendations": [
         "redhat.ansible",
-        "ms-azuretools.vscode-docker",
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
         "HashiCorp.terraform",
         "signageos.signageos-vscode-sops",
     ]
