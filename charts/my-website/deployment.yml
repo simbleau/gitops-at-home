@@ -40,3 +40,10 @@ spec:
               port: 80
             failureThreshold: 1
             periodSeconds: 10
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1
+            requests:
+              memory: 128Mi
+              cpu: "0.2"
