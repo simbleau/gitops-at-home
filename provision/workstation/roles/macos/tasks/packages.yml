@@ -15,6 +15,14 @@
   retries: 5
   until: gh_cli is success
 
+- name: Install | Kubectl
+  community.general.homebrew:
+    name: kubectl
+    state: present
+  register: kubectl
+  retries: 5
+  until: kubectl is success
+
 # Install Rust
 - name: Checking for Rust
   ansible.builtin.stat:
@@ -65,7 +73,7 @@
   ansible.builtin.shell: cargo completions zsh cargo > {{ lookup('env', 'HOME') }}/.zfunc/cargo
   when: not cmp_cargo.stat.exists
 
-- name: Check | GitHub CLI  completions
+- name: Check | GitHub CLI completions
   ansible.builtin.stat:
     path: "{{ lookup('env', 'HOME') }}/.zfunc/gh"
   register: cmp_gh
@@ -73,3 +81,12 @@
 - name: Install GitHub CLI completions
   ansible.builtin.shell: gh completion -s zsh > {{ lookup('env', 'HOME') }}/.zfunc/gh
   when: not cmp_gh.stat.exists
+
+- name: Check | Kubectl completions
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.zfunc/kubectl"
+  register: cmp_kubectl
+
+- name: Install Kubectl completions
+  ansible.builtin.shell: kubectl completion zsh > {{ lookup('env', 'HOME') }}/.zfunc/kubectl
+  when: not cmp_kubectl.stat.exists
