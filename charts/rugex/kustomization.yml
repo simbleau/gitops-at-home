@@ -12,7 +12,7 @@ resources:
   - auth-server/pvc.yml
   - auth-server/deployment.yml
   - auth-server/service.yml
-  # TODO - auth-server/secret.yml
+  - auth-server/secret.yml
   # DDNS
   - ddns/deployment.yml
   - ddns/inventory.yml
