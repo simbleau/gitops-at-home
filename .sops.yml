@@ -9,10 +9,6 @@
 # see also:
 #   age encryption: https://github.com/FiloSottile/age#readme
 creation_rules:
-  - path_regex: .*\.sops\.ya?ml
-    age: >-
-      age1vyn7adkeklaztjhgcuh3sflwzlk6mcuy52ja0wr5kn3ghf5u8e2sa2esn4
-
-  - path_regex: .*\.age
+  - path_regex: .*\.sops\..*
     age: >-
       age1vyn7adkeklaztjhgcuh3sflwzlk6mcuy52ja0wr5kn3ghf5u8e2sa2esn4
