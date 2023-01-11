@@ -30,4 +30,4 @@
     - name: Install MacOS
       ansible.builtin.include_role:
         name: macos
-      when: ansible_distribution == 'MacOSX' and ansible_distribution_version == '13.0.1'
+      when: ansible_distribution == 'MacOSX'
