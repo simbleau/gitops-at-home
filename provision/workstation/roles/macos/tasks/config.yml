@@ -24,7 +24,7 @@
 
 - name: Load | Config (kubeconfig)
   ansible.builtin.set_fact:
-    kubeconfig: "{{ lookup('file', 'kubeconfig.sops.age') | community.sops.decrypt(output_type='binary') }}"
+    kubeconfig: "{{ lookup('file', 'kubeconfig.sops.yml') | community.sops.decrypt(output_type='yaml') }}"
 
 - name: Stage | Config (kubeconfig)
   ansible.builtin.copy:
