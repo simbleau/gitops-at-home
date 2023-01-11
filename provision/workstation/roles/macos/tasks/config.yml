@@ -21,3 +21,14 @@
     dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/cddns/config.toml"
     owner: "{{ lookup('env', 'USER') }}"
     mode: 0400
+
+- name: Load | Config (kubeconfig)
+  ansible.builtin.set_fact:
+    kubeconfig: "{{ lookup('file', 'kubeconfig.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Stage | Config (kubeconfig)
+  ansible.builtin.copy:
+    content: "{{ kubeconfig }}\n"
+    dest: "{{ lookup('env', 'HOME') }}/.kube/config"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0400
