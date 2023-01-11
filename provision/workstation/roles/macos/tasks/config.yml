@@ -10,3 +10,14 @@
     src: "zprofile"
     dest: "/Users/{{ lookup('env', 'USER') }}/.zprofile"
     mode: '0644'
+
+- name: Load | Config (cddns)
+  ansible.builtin.set_fact:
+    cddns_toml: "{{ lookup('file', 'cddns.toml.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Stage | Config (cddns)
+  ansible.builtin.copy:
+    content: "{{ cddns_toml }}\n"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/cddns/config.toml"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0400
