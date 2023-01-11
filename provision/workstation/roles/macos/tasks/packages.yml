@@ -39,14 +39,29 @@
     owner: "{{ lookup('env', 'USER') }}"
     mode: 0755
 
-- name: Install Rustup completions
-  ansible.builtin.shell: rustup completions zsh > {{ lookup('env', 'HOME') }}/.zfunc/rustup
-  when: not rustup.stat.exists
+- name: Check | Rustup completions
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.zfunc/rustup"
+  register: cmp-rust
 
-- name: Install Cargo completions
+- name: Install | Rustup completions
+  ansible.builtin.shell: rustup completions zsh > {{ lookup('env', 'HOME') }}/.zfunc/rustup
+  when: not cmp-rust.stat.exists
+
+- name: Check | Rustup completions
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.zfunc/cargo"
+  register: cmp-cargo
+
+- name: Install | Cargo completions
   ansible.builtin.shell: cargo completions zsh cargo > {{ lookup('env', 'HOME') }}/.zfunc/cargo
-  when: not rustup.stat.exists
+  when: not cmp-cargo.stat.exists
+
+- name: Check | GitHub CLI  completions
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.zfunc/gh"
+  register: cmp-gh
 
 - name: Install GitHub CLI completions
   ansible.builtin.shell: gh completion -s zsh > {{ lookup('env', 'HOME') }}/.zfunc/gh
-  when: gh_cli is success
+  when: not cmp-gh.stat.exists
