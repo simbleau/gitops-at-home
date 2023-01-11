@@ -10,6 +10,9 @@ resources:
   # Authentication Server
   - auth-server/pv.yml
   - auth-server/pvc.yml
+  - auth-server/deployment.yml
+  - auth-server/service.yml
+  # TODO - auth-server/secret.yml
   # DDNS
   - ddns/deployment.yml
   - ddns/inventory.yml
