@@ -26,7 +26,7 @@ spec:
           image: postgres
           volumeMounts:
             - name: pgdata
-              mountPath: /var/lib/postgresql/data/pgdata
+              mountPath: /var/lib/postgresql/data/
           env:
             - name: POSTGRES_USER
               value: test

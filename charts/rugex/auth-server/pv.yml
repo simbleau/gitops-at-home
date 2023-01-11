@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/pool/rgx/data/login/"
+    path: "/pool/rgx/data/"
   nodeAffinity:
     required:
       nodeSelectorTerms:
