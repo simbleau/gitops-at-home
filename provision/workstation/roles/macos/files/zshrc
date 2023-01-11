@@ -1,4 +1,3 @@
-# Increase history size
 # Increase history size (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=10000
