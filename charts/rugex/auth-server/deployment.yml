@@ -19,18 +19,19 @@ spec:
     spec:
       volumes: # Expose data as volume
         - name: "pgdata"
+          persistentVolumeClaim:
+            claimName: postgresql-pv-claim
       containers:
         - name: postgres
-          image: postgres:latest
-          imagePullPolicy: Always
+          image: postgres
           volumeMounts:
             - name: pgdata
-              mountPath: /pool/rgx/data/login
-              readOnly: false
+              mountPath: /var/lib/postgresql/data/pgdata
           env:
-            - name: PGDATA
-              value: /var/lib/postgresql/data/pgdata
             - name: POSTGRES_USER
               value: test
             - name: POSTGRES_PASSWORD
-              value: test
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: token
