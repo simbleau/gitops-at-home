@@ -39,7 +39,7 @@
     - name: Mount to clients
       ansible.posix.mount:
         name: "{{ hostvars[item].mnt }}"
-        src: "{{ hostvars[item].ansible_host }}:/{{ hostvars[item].mnt }}"
+        src: "{{ hostvars[item].ansible_host }}:{{ hostvars[item].mnt }}"
         fstype: nfs
         opts: defaults
         dump: 0
