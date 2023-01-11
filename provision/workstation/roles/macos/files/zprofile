@@ -10,4 +10,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 # Source cargo
-source "$HOME/.cargo/env"
+source "$HOME/.cargo/env" || true
+
+# Source Docker Desktop
+source "$HOME/.docker/init-zsh.sh" || true
