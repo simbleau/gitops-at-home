@@ -31,6 +31,14 @@
   ansible.builtin.command: /tmp/sh.rustup.rs -y
   when: not rustup.stat.exists
 
+- name: Install cddns
+  community.general.cargo:
+    name: cddns
+
+- name: Install Trunk
+  community.general.cargo:
+    name: trunk
+
 # Install zsh completions
 - name: Make zsh completions directory
   ansible.builtin.file:
