@@ -34,4 +34,4 @@
 - name: Start nfs servers
   ansible.builtin.service:
     name: nfs-kernel-server
-    state: started
+    state: restarted
