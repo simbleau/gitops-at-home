@@ -7,12 +7,6 @@ resources:
   #- website/deployment.yml
   #- website/service.yml
   #- website/ingress.yml
-  # Authentication Server
-  - auth-server/pv.yml
-  - auth-server/pvc.yml
-  - auth-server/deployment.yml
-  - auth-server/service.yml
-  - auth-server/secret.yml
   # DDNS
   - ddns/deployment.yml
   - ddns/inventory.yml
