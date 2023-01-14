@@ -50,9 +50,8 @@ spec:
               command:
                 - cddns
                 - verify
-            initialDelaySeconds: 10
-            failureThreshold: 3
-            periodSeconds: 10
+            failureThreshold: 5
+            periodSeconds: 30
           resources:
             limits:
               memory: 128Mi
