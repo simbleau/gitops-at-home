@@ -35,3 +35,10 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: token
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: "0.5"
+            requests:
+              memory: 32Mi
+              cpu: "0.1"
