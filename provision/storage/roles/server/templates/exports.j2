@@ -2,7 +2,8 @@
 #               to NFS clients.  See exports(5).
 #
 {% for client in groups['client'] %}
-{{ hostvars[inventory_hostname].mnt }}     {{ hostvars[client].ansible_host }}/24(rw,insecure,no_subtree_check,no_root_squash)
+{{ hostvars[inventory_hostname].mnt }}     {{ hostvars[client].ansible_host }}/24(rw,sync,no_subtree_check,no_root_squash)
 {% endfor %}
+
 # Manual entries
-{{ hostvars[inventory_hostname].mnt }}     192.168.100.68/24(rw,insecure,no_subtree_check,no_root_squash)
+{{ hostvars[inventory_hostname].mnt }}     spencer-mac/24(rw,sync,no_subtree_check,no_root_squash)
