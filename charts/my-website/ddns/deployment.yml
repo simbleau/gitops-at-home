@@ -38,21 +38,13 @@ spec:
                 secretKeyRef:
                   name: cddns-api-token
                   key: token
-          readinessProbe:
-            exec:
-              command:
-                - cddns
-                - verify
-            failureThreshold: 3
-            periodSeconds: 10
           livenessProbe:
             exec:
               command:
                 - cddns
                 - verify
-            initialDelaySeconds: 10
-            failureThreshold: 3
-            periodSeconds: 10
+            failureThreshold: 5
+            periodSeconds: 30
           resources:
             limits:
               memory: 128Mi
