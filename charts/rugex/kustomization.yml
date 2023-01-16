@@ -4,9 +4,9 @@ resources:
   # General
   - namespace.yml
   # Website
-  #- website/deployment.yml
-  #- website/service.yml
-  #- website/ingress.yml
+  - website/deployment.yml
+  - website/service.yml
+  - website/ingress.yml
   # DDNS
   - ddns/deployment.yml
   - ddns/inventory.yml

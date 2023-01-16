@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: rgx-website
-          image: simbleau/website:v4
+          image: simbleau/rgx-website:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
