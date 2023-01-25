@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rgx-ingress
+  name: vgx-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: rugex.dev
+    - host: vgx.dev
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: rgx-website-svc
+                name: vgx-website-svc
                 port:
                   number: 80
