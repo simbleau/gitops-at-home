@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: vgx-website
-          image: simbleau/rgx-website:v1
+          image: vectorgameexperts/website:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 80
