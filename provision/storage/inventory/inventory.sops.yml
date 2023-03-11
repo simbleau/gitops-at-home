@@ -6,22 +6,9 @@ server:
             mnt: ENC[AES256_GCM,data:0GllVwg=,iv:wqsmS3dk2V6FeUV0iUMqHDMxKF1KsY2G5oDVtHXoLwU=,tag:xUbhFMSDQXedZ7I+Os6sYA==,type:str]
 client:
     hosts:
-        buttercup:
-            ansible_host: ENC[AES256_GCM,data:CZUbMOH9ujUTP3w6djU=,iv:X8jO/LNCrctNX2QaR/UYG7hL7aWzBpfPbGORIKWNGq0=,tag:40fW9iVbT0I4J/KJIZKGhg==,type:str]
-        blossom:
-            ansible_host: ENC[AES256_GCM,data:zWul6tT9NHwA8fD5Ea8=,iv:BrtOuaNQWVE+mt/HvTnIFdptJZW6YZ8f+krnKxC20s8=,tag:NCAScB132Y0yb5s7Tgw4Vw==,type:str]
-        bliss:
-            ansible_host: ENC[AES256_GCM,data:pQaeILiZp2/xzCuNsXA=,iv:p06kwtUgIQQYveQ03kO5wpEpfIXLsR6BD9dryO2JKzU=,tag:ATZnMQCrPIWEpOFreV/Fww==,type:str]
-        bubbles:
-            ansible_host: ENC[AES256_GCM,data:GfRqw/GvrS3jk6wSGWw=,iv:9TJpvYvrhnPVer1czBGCXEJiVvzG+NEcAO9wdvtHrRI=,tag:l+Y5zFJdWbUyXejh4p4kew==,type:str]
-        leonardo:
-            ansible_host: ENC[AES256_GCM,data:bmkz0dK9TbVyldZjsgw=,iv:kU82IQs2DQ62Mn4nopHmGdziDV+pFL4p1ZJEXDZEvuU=,tag:u0AAZdUhWi83O8uWzksMxQ==,type:str]
-        raphael:
-            ansible_host: ENC[AES256_GCM,data:UBGwUiKAKcZXKi+xREs=,iv:yOeUtdwELor+SC55+6sfpSU3u9EgwfkJAFDvh4fHqSs=,tag:rfcusUNbyCGc+0NTTIUZPw==,type:str]
-        donatello:
-            ansible_host: ENC[AES256_GCM,data:ffOPlunBxtknAY53AWQ=,iv:rBZJ00GSWaShFVh8YQ6imtgKWxj1ivRAZW60pI7xuI0=,tag:z7J46qK8+FqtsnGCo04EFA==,type:str]
-        michelangelo:
-            ansible_host: ENC[AES256_GCM,data:6mkouT4l+94x3n/OpqQ=,iv:AhrfM12fA4Xn4Adh4hdggendg/5NLRy4Fi22jPDkFH4=,tag:a1OzdLySvncyG3yNT4fK8g==,type:str]
+        home-macos:
+            ansible_connection: ENC[AES256_GCM,data:sudkmQI=,iv:BT+eKGfRND/sDeeTw/Z73tgza76wrYhJcorZM29X8D4=,tag:HsCuhqInHs3Y+hWkL8RJNA==,type:str]
+            ansible_host: ENC[AES256_GCM,data:Wy7En2st5YWH,iv:v8h2AKP6TqssNhgxdTBpqdhQOpuum6R/NVDHbVEJtCA=,tag:sbtEu2hymDKGfOAv60LMQg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -37,8 +24,8 @@ sops:
             ZE85MTFNWjloVE0rK3pSeCtjOThtdVkKQugCg5cjwhvP8RW1VShqkgqRVXqMHDk8
             92w16mAxVn09xJ9Hb4R7cxr08Rfe6jbrlXGGvhWYS8tfDD+XIkcTkg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-01-11T03:51:47Z"
-    mac: ENC[AES256_GCM,data:Ln+/NFVWHikf4YYtqY/6BuQ2ZAggY3kML1Kkd5fbQeCK3di02wrRYHVYLNzWTlPs5ezMMzrvIXkXlDIEP7JEqBnAEzAFujiTUafapH7JT+sx7o/YJb5RSuSGZbX//X9xd4Y5PDGCqj03WqdYoVrI9KJQIAWS/tdm7BIM4XSTqkc=,iv:tcGqBbKs5weI+9KURRCOF7T66BD8wzQfwlNa7m3ct5I=,tag:1/1V0Tx+bDFQNXk8Sj4bXg==,type:str]
+    lastmodified: "2023-03-11T17:46:52Z"
+    mac: ENC[AES256_GCM,data:uSpAtq+6hEqxWtpGnZF/C10d05sxGPpMFwJX+qHCrmmJU8/JY3BefqXOCkp2SFl1YvwT2u3IO3hjZsHoDa06r4cdAI/eqM08NngWWS2h6rdXhVVhFLwGCm2ciZZ9AG8G6onv7xIeYovPwTHtQRc1dPtqmAzCQIHrAuunNwWPXd8=,iv:6HfukrlGzXeUyQPH9cJhsUp7fLT9fPbNqXaonLXJVOM=,tag:DuKbd+iC+TKNMkwhiOE6pQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.3
