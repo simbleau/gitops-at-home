@@ -39,9 +39,11 @@
   ansible.builtin.command: /tmp/sh.rustup.rs -y
   when: not rustup.stat.exists
 
-- name: Install cddns
-  community.general.cargo:
-    name: cddns
+# cddns uses nightly, which can't be installed with community.general.cargo yet
+# see: https://docs.ansible.com/ansible/latest/collections/community/general/cargo_module.html
+# - name: Install cddns
+#  community.general.cargo:
+#    name: cddns
 
 - name: Install Trunk
   community.general.cargo:
