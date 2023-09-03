@@ -1,15 +1,25 @@
 ---
-- name: Installing zshrc
-  ansible.builtin.copy:
-    src: "zshrc"
-    dest: "/Users/{{ lookup('env', 'USER') }}/.zshrc"
-    mode: '0644'
+- name: Load | Config (zshrc)
+  ansible.builtin.set_fact:
+    zshrc: "{{ lookup('file', 'zshrc.sops.age') | community.sops.decrypt(output_type='binary') }}"
 
-- name: Installing zprofile
+- name: Stage | Config (zshrc)
   ansible.builtin.copy:
-    src: "zprofile"
+    content: "{{ zshrc }}\n"
+    dest: "/Users/{{ lookup('env', 'USER') }}/.zshrc"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0644
+
+- name: Load | Config (zprofile)
+  ansible.builtin.set_fact:
+    zprofile: "{{ lookup('file', 'zprofile.sops.age') | community.sops.decrypt(output_type='binary') }}"
+
+- name: Stage | Config (zprofile)
+  ansible.builtin.copy:
+    content: "{{ zprofile }}\n"
     dest: "/Users/{{ lookup('env', 'USER') }}/.zprofile"
-    mode: '0644'
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: 0644
 
 - name: Load | Config (cddns)
   ansible.builtin.set_fact:
