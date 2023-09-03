@@ -4,6 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:$HOME/Applications"
 export PATH="$PATH:/Library/TeX/texbin"
 export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+export PATH="$PATH:/opt/homebrew/opt/llvm/bin"
 
 # Automatically add SSH keys
 eval "$(ssh-agent -s)"
